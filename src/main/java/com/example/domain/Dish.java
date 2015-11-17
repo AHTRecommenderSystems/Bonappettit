@@ -51,6 +51,15 @@ public class Dish {
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
+    
+    public String getCategoriesNames() {
+    	String names = "";
+    	Set<Category> categories = this.getCategories();
+    	if(categories != null)
+    		for(Category category : categories)
+    			names += category.getName() + "|";
+    	return names;
+    }
 
     @Override
     public int hashCode() {
