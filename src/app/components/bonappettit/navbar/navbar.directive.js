@@ -14,8 +14,6 @@ angular
     return directive;
   }
 
-  navbarController.$inject = ['$scope'];
-
-  function navbarController($scope){
-    var vm = this;
+  /** @ngInject */
+  function navbarController(){
   }

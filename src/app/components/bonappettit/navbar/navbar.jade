@@ -18,25 +18,19 @@ nav.navbar.navbar-inverse
       ul.nav.navbar-nav.navbar-right
         //- li
         //-   a(href='#') Link    
-        li(uib-dropdown='', is-open='status.isopen')
-          a#single-button.dropdown-toggle(type='button', uib-dropdown-toggle='', ng-disabled='disabled')
-            | Usuario
-            span.caret
-          ul#dropdown-navbar(uib-dropdown-menu='', role='menu', aria-labelledby='single-button')
-            li(role='menuitem')
-              a(href="#") Inicio de sesión
-              //- .input-group
-              //-   span#basic-addon1.input-group-addon @
-              //-   input.form-control(type='text', placeholder='Username', aria-describedby='basic-addon1')
-
-            li.divider
-            li(role='menuitem')
-              a(href='#') Registrarse
         li
-          a(href='#')
-            span.glyphicon.glyphicon-user
+          a(ui-sref="signup")
+            span.glyphicon.glyphicon-user 
             |  Registrate
         li
-          a(href='#')
-            span.glyphicon.glyphicon-log-in
+          a(ui-sref="login")
+            span.glyphicon.glyphicon-log-in  
             |  Inicio de sesión
+        li
+          a(ui-sref="profile")
+            span.glyphicon.glyphicon-user 
+            |  Usuario
+        li
+          a(ui-sref="home")
+            span.glyphicon.glyphicon-user 
+            |  Cerrar sesión
