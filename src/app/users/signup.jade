@@ -12,11 +12,11 @@
         .panel-body
           form.form
             .col-xs-6.pull-left
-              input.form-control(type="text" placeholder="Nombre(s)")
+              input.form-control(type="text" ng-model="signup.name" placeholder="Nombre(s)")
             .col-xs-6.pull-right
-              input.form-control(type="text" placeholder="Apellido(s)")
+              input.form-control(type="text" ng-model="signup.lastname" placeholder="Apellido(s)")
             .col-xs-12
-              input.form-control(type="email" placeholder="Correo electrónico")
+              input.form-control(type="email" ng-model="signup.name" placeholder="Correo electrónico")
             .col-xs-12
               input.form-control(type="password" placeholder="Contraseña")
             .col-xs-12
@@ -30,20 +30,19 @@
                   | Nacionalidad  
                   span.caret
                 ul.dropdown-menu(uib-dropdown-menu='', role='menu', aria-labelledby='simple-btn-keyboard-nav')
-                  li(role='menuitem')
-                    a(href='#') México
-                  li(role='menuitem')
-                    a(href='#') España
-                  li(role='menuitem')
-                    a(href='#') Otro
+                  li(role='menuitem') México
+                  li(role='menuitem') España
+                  li(role='menuitem') Otro
             .col-xs-12
               input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
       .panel.panel-default(ng-if="login.login")
-        .panel-body
-          form.form
+        .panel-body(ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }")
+          form.form(ng-submit="login.authenticate()" role="form" name="form")
             .col-xs-12
-              input.form-control(type="email" placeholder="Correo electrónico")
+              input.form-control(name="email_login" id="email_login" type="email" ng-model="login.email" placeholder="Correo electrónico")
+              span(ng-show="form.email_login.$dirty && form.email_login.$error.required" class="help-block") El correo electrónico es necesario
             .col-xs-12
-              input.form-control(type="password" placeholder="Contraseña")
+              input.form-control(name="password_login" id="password_login" type="password" ng-model="login.password" placeholder="Contraseña")
+              span(ng-show="form.password_login.$dirty && form.password_login.$error.required" class="help-block") La contraseña es necesaria
             .col-xs-12
               input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")

@@ -6,7 +6,7 @@
     .controller("SignupController",SignupController);
 
   /** @ngInject */
-  function SignupController(){
+  function SignupController(UserService, $location, $rootScope, FlashService){
     var vm = this;
     vm.signup = true;
     vm.today = function() {
@@ -102,5 +102,21 @@
 
     return '';
   }
+
+  vm.register = register;
+ 
+        function register() {
+            vm.dataLoading = true;
+            UserService.Create(vm.user)
+                .then(function (response) {
+                    if (response.success) {
+                        FlashService.Success('Registration successful', true);
+                        $location.path('/login');
+                    } else {
+                        FlashService.Error(response.message);
+                        vm.dataLoading = false;
+                    }
+                });
+        }
   }
 })();

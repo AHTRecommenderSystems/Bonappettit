@@ -33,13 +33,13 @@
         controllerAs: 'createDish'
       })
       .state('dishInfo', {
-        url: '/dish',
+        url: '/dish/:id',
         templateUrl: 'app/dishes/info.html',
         controller: 'DishInfoController',
         controllerAs: 'dishInfo'
       })
       .state('profile', {
-        url: '/profile',
+        url: '/user/:id',
         templateUrl: 'app/users/profile.html',
         controller: 'ProfileController',
         controllerAs: 'profile'
