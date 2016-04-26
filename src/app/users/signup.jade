@@ -1,0 +1,49 @@
+.container.text-center.centered
+  .col-xs-6
+    .row
+      .text-center
+        ul.nav.nav-tabs
+          li(role="presentation" ng-class="{active: signup.signup}")
+            a(ui-sref="signup") Registrarse
+          li(role="presentation" ng-class="{active: login.login}")
+            a(ui-sref="login") Inicio de sesión
+    .row
+      .panel.panel-default(ng-if="signup.signup")
+        .panel-body
+          form.form
+            .col-xs-6.pull-left
+              input.form-control(type="text" placeholder="Nombre(s)")
+            .col-xs-6.pull-right
+              input.form-control(type="text" placeholder="Apellido(s)")
+            .col-xs-12
+              input.form-control(type="email" placeholder="Correo electrónico")
+            .col-xs-12
+              input.form-control(type="password" placeholder="Contraseña")
+            .col-xs-12
+              .input-group.pull-left.col-xs-6
+                input.form-control(type='text', uib-datepicker-popup='{{signup.format}}', ng-model='signup.dt', is-open='signup.popup1.opened', datepicker-options='signup.dateOptions', ng-required='true', close-text='signup.Close', alt-input-formats='signup.altInputFormats')
+                span.input-group-btn
+                  button.btn.btn-default(type='button', ng-click='signup.open1()')
+                    i.glyphicon.glyphicon-calendar
+              .btn-group.pull-right.col-xs-6(uib-dropdown='', keyboard-nav='')
+                button#simple-btn-keyboard-nav.btn.btn-default(type='button', uib-dropdown-toggle='')
+                  | Nacionalidad  
+                  span.caret
+                ul.dropdown-menu(uib-dropdown-menu='', role='menu', aria-labelledby='simple-btn-keyboard-nav')
+                  li(role='menuitem')
+                    a(href='#') México
+                  li(role='menuitem')
+                    a(href='#') España
+                  li(role='menuitem')
+                    a(href='#') Otro
+            .col-xs-12
+              input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
+      .panel.panel-default(ng-if="login.login")
+        .panel-body
+          form.form
+            .col-xs-12
+              input.form-control(type="email" placeholder="Correo electrónico")
+            .col-xs-12
+              input.form-control(type="password" placeholder="Contraseña")
+            .col-xs-12
+              input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
