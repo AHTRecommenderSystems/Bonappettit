@@ -16,32 +16,32 @@
       })
       .state('login', {
         url: '/login',
-        templateUrl: 'app/users/login.html',
-        controller: 'loginController',
+        templateUrl: 'app/users/signup.html',
+        controller: 'LoginController',
         controllerAs: 'login'
       })
-      .state('register', {
+      .state('signup', {
         url: '/signup',
         templateUrl: 'app/users/signup.html',
-        controller: 'signupControlelr',
+        controller: 'SignupController',
         controllerAs: 'signup'
       })
       .state('createDish', {
         url: '/dish/create',
         templateUrl: 'app/dishes/createDish.html',
-        controller: 'createDishController',
+        controller: 'CreateDishController',
         controllerAs: 'createDish'
       })
       .state('dishInfo', {
         url: '/dish',
         templateUrl: 'app/dishes/info.html',
-        controller: 'dishInfoController',
+        controller: 'DishInfoController',
         controllerAs: 'dishInfo'
       })
-      .state('userProfile', {
+      .state('profile', {
         url: '/profile',
         templateUrl: 'app/users/profile.html',
-        controller: 'profileController',
+        controller: 'ProfileController',
         controllerAs: 'profile'
       });
 
