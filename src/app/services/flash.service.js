@@ -6,7 +6,7 @@
         .module('bonappettit')
         .factory('FlashService', FlashService);
 
-    FlashService.$inject = ['$rootScope'];
+    /** @ngInject */
     function FlashService($rootScope) {
         var service = {};
 
@@ -18,7 +18,7 @@
         return service;
 
         function initService() {
-            $rootScope.$on('$locationChangeStart', function () {
+            var unregister = $rootScope.$on('$locationChangeStart', function () {
                 clearFlashMessage();
             });
 

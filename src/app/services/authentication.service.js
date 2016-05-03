@@ -5,8 +5,8 @@
         .module('bonappettit')
         .factory('AuthenticationService', AuthenticationService);
  
-    AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'UserService'];
-    function AuthenticationService($http, $cookieStore, $rootScope, $timeout, UserService) {
+    /** @ngInject */
+    function AuthenticationService($http, $cookies, $rootScope) {
         var service = {};
  
         service.Login = Login;
@@ -15,7 +15,7 @@
  
         return service;
  
-        function Login(username, password, callback) {
+        function Login(email, password, callback) {
  
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
@@ -34,7 +34,7 @@
  
             /* Real authentication
              ----------------------------------------------*/
-            $http.post('/api/authenticate', { username: username, password: password })
+            $http.post('/api/authenticate', { email: email, password: password })
                .success(function (response) {
                    callback(response);
                });
@@ -52,12 +52,12 @@
             };
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-            $cookieStore.put('globals', $rootScope.globals);
+            $cookies.put('globals', $rootScope.globals);
         }
  
         function ClearCredentials() {
             $rootScope.globals = {};
-            $cookieStore.remove('globals');
+            $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
         }
     }
@@ -110,7 +110,7 @@
             // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
             var base64test = /[^A-Za-z0-9\+\/\=]/g;
             if (base64test.exec(input)) {
-                window.alert("There were invalid base64 characters in the input text.\n" +
+                alert("There were invalid base64 characters in the input text.\n" +
                     "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
                     "Expect errors in decoding.");
             }

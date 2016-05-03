@@ -6,7 +6,7 @@
     .controller("LoginController",LoginController);
 
   /** @ngInject */
-  function LoginController(AuthenticationService, FlashService){
+  function LoginController(AuthenticationService, FlashService, $location){
     var vm = this;
     vm.login = true;
     vm.authenticate = authenticate;

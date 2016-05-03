@@ -6,9 +6,9 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log,$rootScope, $location, $cookieStore, $http) {
+  function runBlock($log,$rootScope, $location, $cookies, $http) {
     // keep user logged in after page refresh
-    $rootScope.globals = $cookieStore.get('globals') || {};
+    $rootScope.globals = $cookies.get('globals') || {};
     if ($rootScope.globals.currentUser) {
         $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
     }

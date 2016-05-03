@@ -28,7 +28,7 @@
       })
       .state('createDish', {
         url: '/dish/create',
-        templateUrl: 'app/dishes/createDish.html',
+        templateUrl: 'app/dishes/create.html',
         controller: 'CreateDishController',
         controllerAs: 'createDish'
       })
