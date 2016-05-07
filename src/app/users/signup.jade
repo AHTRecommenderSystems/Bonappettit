@@ -12,13 +12,13 @@
         .panel-body
           form.form
             .col-xs-6.pull-left
-              input.form-control(type="text" ng-model="signup.name" placeholder="Nombre(s)")
+              input.separation_top.separation.form-control(type="text" ng-model="signup.name" placeholder="Nombre(s)")
             .col-xs-6.pull-right
-              input.form-control(type="text" ng-model="signup.lastname" placeholder="Apellido(s)")
+              input.separation_top.separation.form-control(type="text" ng-model="signup.lastname" placeholder="Apellido(s)")
             .col-xs-12
-              input.form-control(type="email" ng-model="signup.name" placeholder="Correo electrónico")
+              input.separation.form-control(type="email" ng-model="signup.name" placeholder="Correo electrónico")
             .col-xs-12
-              input.form-control(type="password" placeholder="Contraseña")
+              input.separation.form-control(type="password" placeholder="Contraseña")
             .col-xs-12
               .input-group.pull-left.col-xs-6
                 input.form-control(type='text', uib-datepicker-popup='{{signup.format}}', ng-model='signup.dt', is-open='signup.popup1.opened', datepicker-options='signup.dateOptions', ng-required='true', close-text='signup.Close', alt-input-formats='signup.altInputFormats')
@@ -26,23 +26,31 @@
                   button.btn.btn-default(type='button', ng-click='signup.open1()')
                     i.glyphicon.glyphicon-calendar
               .btn-group.pull-right.col-xs-6(uib-dropdown='', keyboard-nav='')
-                button#simple-btn-keyboard-nav.btn.btn-default(type='button', uib-dropdown-toggle='')
-                  | Nacionalidad  
+                button.dropdown_menu_size.separation#simple-btn-keyboard-nav.btn.btn-default(type='button', uib-dropdown-toggle='')
+                  | Nacionalidad
                   span.caret
                 ul.dropdown-menu(uib-dropdown-menu='', role='menu', aria-labelledby='simple-btn-keyboard-nav')
-                  li(role='menuitem') México
-                  li(role='menuitem') España
-                  li(role='menuitem') Otro
+                  li.texto(role='menuitem') Argentina
+                  li.texto(role='menuitem') Alemania
+                  li.texto(role='menuitem') Brasil
+                  li.texto(role='menuitem') Colombia
+                  li.texto(role='menuitem') China
+                  li.texto(role='menuitem') Francia
+                  li.texto(role='menuitem') Holanda
+                  li.texto(role='menuitem') Italia
+                  li.texto(role='menuitem') México
+                  li.texto(role='menuitem') España
+                  li.texto(role='menuitem') Otro
             .col-xs-12
-              input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
+              input.separation_down.button_height.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
       .panel.panel-default(ng-if="login.login")
         .panel-body(ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }")
           form.form(ng-submit="login.authenticate()" role="form" name="form")
             .col-xs-12
-              input.form-control(name="email_login" id="email_login" type="email" ng-model="login.email" placeholder="Correo electrónico")
+              input.separation_top.separation.form-control(name="email_login" id="email_login" type="email" ng-model="login.email" placeholder="Correo electrónico")
               span(ng-show="form.email_login.$dirty && form.email_login.$error.required" class="help-block") El correo electrónico es necesario
             .col-xs-12
-              input.form-control(name="password_login" id="password_login" type="password" ng-model="login.password" placeholder="Contraseña")
+              input.separation.form-control(name="password_login" id="password_login" type="password" ng-model="login.password" placeholder="Contraseña")
               span(ng-show="form.password_login.$dirty && form.password_login.$error.required" class="help-block") La contraseña es necesaria
             .col-xs-12
-              input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
+              input.button_height.separation_down.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
