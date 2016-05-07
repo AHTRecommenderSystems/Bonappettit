@@ -1,12 +1,12 @@
-.container.text-center.centered
+.menu.container.text-center.centered
   .col-xs-6.col-xs-offset-3
     .row
       .text-center
         ul.nav.nav-tabs
           li(role="presentation" ng-class="{active: signup.signup}")
-            a(ui-sref="signup") Registrarse
+            a.color_menu(ui-sref="signup") Registrarse
           li(role="presentation" ng-class="{active: login.login}")
-            a(ui-sref="login") Inicio de sesión
+            a.color_menu(ui-sref="login") Inicio de sesión
     .row
       .panel.panel-default(ng-if="signup.signup")
         .panel-body
@@ -42,7 +42,7 @@
                   li.texto(role='menuitem') España
                   li.texto(role='menuitem') Otro
             .col-xs-12
-              input.separation_down.button_height.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
+              input.texto_boton.color_boton.separation_down.button_height.btn.col-xs-12(type="submit" value="Registrarse")
       .panel.panel-default(ng-if="login.login")
         .panel-body(ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }")
           form.form(ng-submit="login.authenticate()" role="form" name="form")
@@ -53,4 +53,4 @@
               input.separation.form-control(name="password_login" id="password_login" type="password" ng-model="login.password" placeholder="Contraseña")
               span(ng-show="form.password_login.$dirty && form.password_login.$error.required" class="help-block") La contraseña es necesaria
             .col-xs-12
-              input.button_height.separation_down.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
+              input.texto_boton.button_height.separation_down.color_boton.btn.col-xs-12(type="submit" value="Iniciar Sesión")
