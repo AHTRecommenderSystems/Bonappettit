@@ -26,11 +26,11 @@ nav.navbar.navbar-inverse
           a(ui-sref="login")
             span.glyphicon.glyphicon-log-in  
             |  Inicio de sesión
-        li(ng-if="session")
+        li
           a(ui-sref="profile")
             span.glyphicon.glyphicon-user 
             |  Usuario
-        li(ng-if="session")
+        li
           a(ui-sref="home")
             span.glyphicon.glyphicon-log-out 
             |  Cerrar sesión
