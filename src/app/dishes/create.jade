@@ -1,14 +1,14 @@
 .container
   .col-xs-6.col-xs-offset-3
     .row
-      p Describe las características del platillo 
+      p.text_discribe Describe las características del platillo
       form.form
         .col-xs-12
           input.form-control(type="text" placeholder="Nombre del platillo" required="")
         .col-xs-12
-          textarea.form-control(placeholder="Descripción" required="")
+          textarea.form-control.margin_form_input(rows=5 placeholder="Descripción" required="")
         .col-xs-12
-          input.form-control(type="file")
+          input.form-control.margin_form_input_3(type="file")
         .col-xs-12
           uib-accordion(close-others='oneAtATime')
             uib-accordion-group(is-open='status.open' ng-repeat="category in createDish.characteristics")
@@ -16,7 +16,7 @@
                 | {{category.key}}
                 i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
               .characteristic(ng-repeat="characteristic in category.values")
-                input(type='checkbox', name="characteristic.name", value='characteristic') 
+                input(type='checkbox', name="characteristic.name", value='characteristic')
                 | &nbsp; {{characteristic.name}}
         .col-xs-12
-          input.btn.btn-success(type="submit" value="Guardar platillo" ng-click="createDish.saveDish()" style="width: 100%;")
+          input.btn.button_create.save_dish(type="submit" value="Guardar platillo" ng-click="createDish.saveDish()" style="width: 100%;")
