@@ -6,7 +6,8 @@
         .factory('AuthenticationService', AuthenticationService);
  
     /** @ngInject */
-    function AuthenticationService($http, $cookies, $rootScope) {
+    function AuthenticationService($http, $cookies, $rootScope, $log, $sessionStorage) {
+        var url = "http://localhost:8080/bonappettit-neo4j/rest/users/";
         var service = {};
  
         service.Login = Login;
@@ -16,35 +17,24 @@
         return service;
  
         function Login(email, password, callback) {
- 
-            /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------*/
-            // $timeout(function () {
-            //     var response;
-            //     UserService.GetByUsername(username)
-            //         .then(function (user) {
-            //             if (user !== null && user.password === password) {
-            //                 response = { success: true };
-            //             } else {
-            //                 response = { success: false, message: 'Username or password is incorrect' };
-            //             }
-            //             callback(response);
-            //         });
-            // }, 1000);
- 
-            /* Real authentication
-             ----------------------------------------------*/
-            $http.post('/api/authenticate', { email: email, password: password })
-               .success(function (response) {
-                   callback(response);
-               });
+            return $http({
+                method: 'POST',
+                url: url + 'login/',
+                data: $.param({email: email, password: password}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+              }).success(function (response) {
+                    $log.log(response);
+                    if(response.success){
+                       callback(response);
+                    }
+                   });
  
         }
  
         function SetCredentials(username, password) {
             var authdata = Base64.encode(username + ':' + password);
  
-            $rootScope.globals = {
+            $rootScope.session = {
                 currentUser: {
                     username: username,
                     authdata: authdata
@@ -52,12 +42,12 @@
             };
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-            $cookies.put('globals', $rootScope.globals);
+            $sessionStorage.put('session', $rootScope.session);
         }
  
         function ClearCredentials() {
-            $rootScope.globals = {};
-            $cookies.remove('globals');
+            $rootScope.session = {};
+            $sessionStorage.remove('session');
             $http.defaults.headers.common.Authorization = 'Basic';
         }
     }

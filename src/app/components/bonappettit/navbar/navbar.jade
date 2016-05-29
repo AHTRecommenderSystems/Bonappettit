@@ -19,18 +19,18 @@ nav.navbar.navbar-inverse
         //- li
         //-   a(href='#') Link    
         li
-          a(ui-sref="signup")
+          a(ui-sref="signup" ng-if="!session")
             span.glyphicon.glyphicon-user 
             |  Registrate
         li
-          a(ui-sref="login")
+          a(ui-sref="login" ng-if="!session")
             span.glyphicon.glyphicon-log-in  
             |  Inicio de sesión
         li
-          a(ui-sref="profile")
+          a(ui-sref="profile" ng-if="session")
             span.glyphicon.glyphicon-user 
             |  Usuario
         li
-          a(ui-sref="home")
+          a(ui-sref="home" ng-if="session")
             span.glyphicon.glyphicon-log-out 
             |  Cerrar sesión

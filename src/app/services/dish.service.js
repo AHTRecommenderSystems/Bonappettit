@@ -1,54 +1,107 @@
 (function () {
-    'use strict';
+  'use strict';
  
-    angular
-        .module('bonappettit')
-        .factory('DishService', DishService);
+  angular
+    .module('bonappettit')
+    .factory('DishService', DishService);
  
-    DishService.$inject = ['$http','$log'];
+  DishService.$inject = ['$http','$log','Restangular'];
 
-    function DishService($http, $log) {
-        var service = {};
-        service.GetAll = GetAll;
-        service.GetById = GetById;
-        service.Create = Create;
-        service.Update = Update;
-        service.Delete = Delete;
+  function DishService($http, $log, Restangular) {
+    var url = "http://localhost:8080/bonappettit-neo4j/rest/dishes/";
+    var service = {};
+    service.GetAll = GetAll;
+    service.GetById = GetById;
+    service.Create = Create;
+    service.Update = Update;
+    service.Delete = Delete;
+    service.AddCharacteristic = AddCharacteristic;
+    service.RemoveCharacteristic = RemoveCharacteristic;
+    service.Rate = Rate;
  
-        return service;
- 
-        function GetAll() {
-            return $http.post('http://localhost:8080/bonappettit-neo4j/rest/dishws/retrieveAll').then(handleSuccess, handleError('Error getting all dishes'));
-        }
- 
-        function GetById(id) {
-            return $http.post('http://localhost:8080/bonappettit-neo4j/rest/dishws/retrieve' + id).then(handleSuccess, handleError('Error getting dish by id'));
-        }
- 
-        function Create(dish) {
-            return $http.post('http://localhost:8080/bonappettit-neo4j/rest/dishws/create', dish).then(handleSuccess, handleError('Error creating dish'));
-        }
- 
-        function Update(dish) {
-            return $http.post('http://localhost:8080/bonappettit-neo4j/rest/dishws/update' + dish.id, dish).then(handleSuccess, handleError('Error updating dish'));
-        }
- 
-        function Delete(id) {
-            return $http.post('http://localhost:8080/bonappettit-neo4j/rest/dishws/delete' + id).then(handleSuccess, handleError('Error deleting dish'));
-        }
- 
-        // private functions
- 
-        function handleSuccess(res) {
-            $log.log(res);
-            return res.data;
-        }
- 
-        function handleError(error) {
-            return function () {
-                return { success: false, message: error };
-            };
-        }
+    return service;
+
+    function GetAll() {
+      return $http({
+        method: 'GET',
+        url: url,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError('Error al obtener los platillos'));
     }
+
+    function GetById(id) {
+      return $http({
+        method: 'GET',
+        url: url + id,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError('Error al obtener el platillo '+id));
+    }
+
+    function Create(dish) {
+      return $http({
+        method: 'POST',
+        url: url,
+        data: $.param({name: dish.name, description: dish.description, picture: dish.picture, userId: dish.user}),
+        dataType: "json",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      }).then(handleSuccess, handleError('Error creating dish'));
+    }
+
+    function Update(dish) {
+      return $http({
+        method: 'PUT',
+        url: url,
+        data: $.param({name: dish.name, description: dish.description, picture: dish.picture}),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError('Error updating dish'));
+    }
+
+    function Delete(id) {
+      return $http({
+        method: 'DELETE',
+        url: url + id,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError('Error deleting dish'));
+    }
+
+    function AddCharacteristic(idDish,characteristic){
+      return $http({
+        method: 'POST',
+        url: url + 'characteristics/',
+        data: $.param({idDish: idDish, idCategory: characteristic}),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError('Error updating characteristics'));
+    }
+
+    function RemoveCharacteristic(idDish,characteristic){
+      return $http({
+        method: 'POST',
+        url: url + 'characteristics/delete/',
+        data: $.param({idDish: idDish, idCategory: characteristic}),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError('Error updating characteristics'));
+    }
+
+    function Rate(idDish, value){
+      return $http({
+        method: 'POST',
+        url: url + 'rate/',
+        data: $.param({idDish: idDish, rating: value}),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError("Error al evaluar el platillo"));
+    }
+
+    // private functions
+
+    function handleSuccess(res) {
+      return res.data;
+    }
+
+    function handleError(error) {
+      return function () {
+        return { success: false, message: error };
+      };
+    }
+  }
  
 })();

@@ -43,6 +43,12 @@
         templateUrl: 'app/users/profile.html',
         controller: 'ProfileController',
         controllerAs: 'profile'
+      })
+      .state('search', {
+        url: '/dish/search',
+        templateUrl: 'app/dishes/search.html',
+        controller: 'SearchController',
+        controllerAs: 'search'
       });
 
     $urlRouterProvider.otherwise('/');

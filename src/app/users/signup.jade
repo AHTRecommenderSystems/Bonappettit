@@ -1,48 +1,55 @@
-.container.text-center.centered
+.menu.container.text-center.centered
   .col-xs-6.col-xs-offset-3
     .row
       .text-center
         ul.nav.nav-tabs
           li(role="presentation" ng-class="{active: signup.signup}")
-            a(ui-sref="signup") Registrarse
+            a.color_menu(ui-sref="signup") Registrarse
           li(role="presentation" ng-class="{active: login.login}")
-            a(ui-sref="login") Inicio de sesión
+            a.color_menu(ui-sref="login") Inicio de sesión
     .row
       .panel.panel-default(ng-if="signup.signup")
         .panel-body
           form.form
             .col-xs-6.pull-left
-              input.form-control(type="text" ng-model="signup.name" placeholder="Nombre(s)")
+              input.separation_top.separation.form-control(type="text" ng-model="signup.user.name" placeholder="Nombre(s)" required='')
             .col-xs-6.pull-right
-              input.form-control(type="text" ng-model="signup.lastname" placeholder="Apellido(s)")
+              input.separation_top.separation.form-control(type="text" ng-model="signup.user.lastname" placeholder="Apellido(s)" required='')
             .col-xs-12
-              input.form-control(type="email" ng-model="signup.name" placeholder="Correo electrónico")
+              input.separation.form-control(type="email" ng-model="signup.user.email" placeholder="Correo electrónico" required='')
             .col-xs-12
-              input.form-control(type="password" placeholder="Contraseña")
+              input.separation.form-control(type="password" placeholder="Contraseña" ng-model="signup.password" required='')
             .col-xs-12
               .input-group.pull-left.col-xs-6
-                input.form-control(type='text', uib-datepicker-popup='{{signup.format}}', ng-model='signup.dt', is-open='signup.popup1.opened', datepicker-options='signup.dateOptions', ng-required='true', close-text='signup.Close', alt-input-formats='signup.altInputFormats')
+                input.form-control(type='text', uib-datepicker-popup='{{signup.format}}', ng-model='signup.date', is-open='signup.popup.opened', datepicker-options='signup.dateOptions', ng-required='true', close-text='Cerrar', alt-input-formats='signup.altInputFormats' )
                 span.input-group-btn
-                  button.btn.btn-default(type='button', ng-click='signup.open1()')
+                  button.btn.btn-default(type='button', ng-click='signup.open()')
                     i.glyphicon.glyphicon-calendar
               .btn-group.pull-right.col-xs-6(uib-dropdown='', keyboard-nav='')
-                button#simple-btn-keyboard-nav.btn.btn-default(type='button', uib-dropdown-toggle='')
-                  | Nacionalidad  
-                  span.caret
+                input#simple-btn-keyboard-nav.dropdown_menu_size.separation.text-left.btn.btn-default(type='button', uib-dropdown-toggle='' placeholder="País de origen" value="{{signup.user.country}}")
                 ul.dropdown-menu(uib-dropdown-menu='', role='menu', aria-labelledby='simple-btn-keyboard-nav')
-                  li(role='menuitem') México
-                  li(role='menuitem') España
-                  li(role='menuitem') Otro
+                  li.texto(role='menuitem' ng-repeat="country in signup.countries") 
+                    a(ng-click="signup.setCountry($index)") {{country}}
+            .col-xs-12.separation
+              | Género: &nbsp;
+              label.radio-inline
+                input(type="radio" name="gender" ng-model="login.user.gender" value="F") 
+                | Feminino
+              label.radio-inline
+                input(type="radio" name="gender" ng-model="login.user.gender" value="M") 
+                | Masculino
             .col-xs-12
-              input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
+              input.texto_boton.color_boton.separation_down.button_height.btn.col-xs-12(type="submit" value="Registrarse" ng-click="signup.createUser()")
       .panel.panel-default(ng-if="login.login")
         .panel-body(ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }")
           form.form(ng-submit="login.authenticate()" role="form" name="form")
             .col-xs-12
-              input.form-control(name="email_login" id="email_login" type="email" ng-model="login.email" placeholder="Correo electrónico")
+              input.separation_top.separation.form-control(name="email_login" id="email_login" type="email" ng-model="login.user.email" placeholder="Correo electrónico")
               span(ng-show="form.email_login.$dirty && form.email_login.$error.required" class="help-block") El correo electrónico es necesario
             .col-xs-12
-              input.form-control(name="password_login" id="password_login" type="password" ng-model="login.password" placeholder="Contraseña")
+              input.separation.form-control(name="password_login" id="password_login" type="password" ng-model="login.password" placeholder="Contraseña")
               span(ng-show="form.password_login.$dirty && form.password_login.$error.required" class="help-block") La contraseña es necesaria
             .col-xs-12
-              input.btn.btn-success.col-xs-12(type="submit" value="Registrarse")
+              input.texto_boton.button_height.separation_down.color_boton.btn.col-xs-12(type="submit" value="Iniciar Sesión")
+  uib-alert(ng-repeat="alert in signup.alerts" type="{{alert.type}}" close="signup.closeAlert($index)") {{alert.msg}}
+  uib-alert(ng-repeat="alert in login.alerts" type="{{alert.type}}" close="login.closeAlert($index)") {{alert.msg}}

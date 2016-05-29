@@ -1,12 +1,12 @@
-.container
-  .col-xs-6.col-xs-offset-3
+.container#createDish
+  .col-xs-8.col-xs-offset-2
     .row
       p Describe las características del platillo 
       form.form
         .col-xs-12
-          input.form-control(type="text" placeholder="Nombre del platillo" required="")
+          input.form-control(type="text" placeholder="Nombre del platillo" required="" ng-model="createDish.dish.name")
         .col-xs-12
-          textarea.form-control(placeholder="Descripción" required="")
+          textarea.form-control(placeholder="Descripción" required="" ng-model="createDish.dish.description")
         .col-xs-12
           input.form-control(type="file")
         .col-xs-12
@@ -15,8 +15,13 @@
               uib-accordion-heading
                 | {{category.key}}
                 i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
-              .characteristic(ng-repeat="characteristic in category.values")
-                input(type='checkbox', name="characteristic.name", value='characteristic') 
-                | &nbsp; {{characteristic.name}}
+              .characteristic.col-md-3.col-sm-6.pull-left(ng-repeat="characteristic in category.values")
+                .row
+                  input(type='checkbox', name="characteristic.name" ng-model="createDish.dishCharacteristics[characteristic.id]" id="{{characteristic.id}}")
+                  label(for="{{characteristic.id}}" style="display: block; margin: auto; background: url(assets/images/characteristics/{{characteristic.picture}}); background-size: 42px; background-repeat: no-repeat;" id="{{'label' + characteristic.id}}" ng-click="createDish.selectCharacteristic(characteristic)")
+                .row.text-center
+                  | {{characteristic.name}}
         .col-xs-12
           input.btn.btn-success(type="submit" value="Guardar platillo" ng-click="createDish.saveDish()" style="width: 100%;")
+
+  uib-alert(ng-repeat="alert in createDish.alerts" type="{{alert.type}}" close="createDish.closeAlert($index)") {{alert.msg}}

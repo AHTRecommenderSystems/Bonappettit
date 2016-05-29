@@ -1,95 +1,95 @@
-"id","type","name"
-1,"Tipo de comida","Panes y masas "
-2,"Tipo de comida","Pastas "
-3,"Tipo de comida","Bizcochos y galletas "
-4,"Tipo de comida","Carnes "
-5,"Tipo de comida","Aves "
-6,"Tipo de comida","Pescados y mariscos "
-7,"Tipo de comida","Ensaladas "
-8,"Tipo de comida","contenido alcoholico "
-9,"Tipo de comida","Salsas y aderezos "
-10,"Tipo de comida","Sopas y cremas "
-11,"Tipo de comida","Arroces "
-12,"Tipo de comida","Legumbres y guisos "
-13,"Tipo de comida","Tartas y dulces "
-14,"Tipo de comida","Helados y sorbetes "
-15,"Tipo de comida","Frutas "
-16,"Tipo de comida","Verduras "
-17,"Tipo de comida","Huevos "
-18,"Tipo de comida","Lacteos "
-19,"Tipo de comida","Frutos secos "
-20,"Tipo de comida","Encurtidos y conservas "
-21,"Tipo de comida","Postre "
-22,"Tipo de comida","Bebida "
-23,"Tipo de comida","Primeros platos "
-24,"Tipo de comida","Segundos platos "
-25,"Tipo de comida","Entradas "
-26,"Tipo de comida","Sopas y cremas "
-27,"Tipo de comida","Acompañamientos "
-28,"Tipo de comida","Emparedados "
-29,"Tipo de comida","Botana "
-30,"Tipo de comida","Comida rapida "
-31,"Sabor","Dulce "
-32,"Sabor","Salado "
-33,"Sabor","Acido "
-34,"Sabor","Amargo "
-35,"Sabor","Umami "
-36,"Sabor","Picante "
-37,"Ocasion","Halloween "
-38,"Ocasion","Navidad "
-39,"Ocasion","San Valentín "
-40,"Ocasion","Ocasion especial"
-41,"Ocasion","Primavera "
-42,"Ocasion","Verano "
-43,"Ocasion","Otoño "
-44,"Ocasion","Invierno "
-45,"Ocasion","Desayunos "
-46,"Ocasion","Almuerzos "
-47,"Ocasion","Comida"
-48,"Ocasion","Merienda"
-49,"Ocasion","Cena"
-50,"Region","Italiana"
-51,"Region","Mediterronea"
-52,"Region","Asiatica"
-53,"Region","Mexicana"
-54,"Region","Americana"
-55,"Region","Hindú"
-56,"Region","Francesa"
-57,"Region","Tailandesa"
-58,"Region","Cantonesa"
-59,"Region","Japonesa"
-60,"Region","China"
-61,"Region","Medio oriente"
-62,"Region","Alemana"
-63,"Region","Argentina"
-64,"Region","Brasileña"
-65,"Region","Colombiana"
-66,"Region","Coreana"
-67,"Region","Cubana"
-68,"Region","Española"
-69,"Region","Finlandesa"
-70,"Region","Griega"
-71,"Region","Holandesa"
-72,"Region","Indonesa"
-73,"Region","Portuguesa"
-74,"Salud","Bajas en colesterol"
-75,"Salud","Diabeticos"
-76,"Salud","Sin lactosa"
-77,"Salud","Celiacos"
-78,"Salud","Alergicos a los frutos secos"
-79,"Salud","Colon irritable"
-80,"Salud","Bajar de peso"
-81,"Salud","Vegetarianos"
-82,"Temperatura","Frio"
-83,"Temperatura","Templado"
-84,"Temperatura","Caliente"
-85,"Gente","Bebes"
-86,"Gente","Niños"
-87,"Gente","Adultos"
-88,"Gente","Familiares"
-89,"Gente","Adultos mayores"
-90,"Textura","Liquidas"
-91,"Textura","Blandas"
-92,"Textura","Semi-blandas"
-93,"Textura","Crujientes"
-94,"Textura","Duras"
+id,type,name,picture,pictureColor
+1,Tipo de comida,Panes y masas ,bread.png,bread_color.png
+2,Tipo de comida,Pastas ,pasta.png,pasta_color.png
+3,Tipo de comida,Bizcochos y galletas ,cookie.png,cookie_color.png
+4,Tipo de comida,Carnes ,steak.png,steak_color.png
+5,Tipo de comida,Aves ,chicken.png,chicken_color.png
+6,Tipo de comida,Pescados y mariscos ,fish.png,fish_color.png
+7,Tipo de comida,Ensaladas ,salad.png,salad_color.png
+8,Tipo de comida,contenido alcoholico ,alcohol.png,alcohol_color.png
+9,Tipo de comida,Salsas y aderezos ,sauce.png,sauce_color.png
+10,Tipo de comida,Sopas y cremas ,soup.png,soup_color.png
+11,Tipo de comida,Arroces ,rice.png,rice_color.png
+12,Tipo de comida,Legumbres y guisos ,beans.png,beans_color.png
+13,Tipo de comida,Tartas y dulces ,cake.png,cake_color.png
+14,Tipo de comida,Helados y sorbetes ,ice-cream.png,ice-cream_color.png
+15,Tipo de comida,Frutas ,fruits.png,fruits_color.png
+16,Tipo de comida,Verduras ,vegetables.png,vegetables_color.png
+17,Tipo de comida,Huevos ,egg.png,egg_color.png
+18,Tipo de comida,Lacteos ,milk-products.png,milk-products_color.png
+19,Tipo de comida,Frutos secos ,dried-fruits.png,dried-fruits_color.png
+20,Tipo de comida,Encurtidos y conservas ,canned-food.png,canned-food_color.png
+21,Tipo de comida,Postre ,dessert.png,dessert_color.png
+22,Tipo de comida,Bebida ,drink.png,drink_color.png
+23,Tipo de comida,Primeros platos ,main-dish.png,main-dish_color.png
+24,Tipo de comida,Segundos platos ,second-dish.png,second-dish_color.png
+25,Tipo de comida,Entradas ,appetizer.png,appetizer_color.png
+26,Tipo de comida,Sopas y cremas ,soup.png,soup_color.png
+27,Tipo de comida,Acompañamientos ,garnish.png,garnish_color.png
+28,Tipo de comida,Emparedados ,sandwich.png,sandwich_color.png
+29,Tipo de comida,Botana ,snack.png,snack_color.png
+30,Tipo de comida,Comida rapida ,fast-food.png,fast-food_color.png
+31,Sabor,Dulce ,sweet.png,sweet_color.png
+32,Sabor,Salado ,salt.png,salt_color.png
+33,Sabor,Acido ,sour.png,sour_color.png
+34,Sabor,Amargo ,bitter.png,bitter_color.png
+35,Sabor,Umami ,umami.png,umami_color.png
+36,Sabor,Picante ,pepper.png,pepper_color.png
+37,Ocasion,Halloween ,halloween.png,halloween_color.png
+38,Ocasion,Navidad ,xmas.png,xmas_color.png
+39,Ocasion,San Valentín ,valentines-day.png,valentines-day_color.png
+40,Ocasion,Ocasion especial,special.png,special_color.png
+41,Ocasion,Primavera ,spring.png,spring_color.png
+42,Ocasion,Verano ,summer.png,summer_color.png
+43,Ocasion,Otoño ,autumn.png,autumn_color.png
+44,Ocasion,Invierno ,winter.png,winter_color.png
+45,Ocasion,Desayunos ,breakfast.png,breakfast_color.png
+46,Ocasion,Almuerzos ,lunch.png,lunch_color.png
+47,Ocasion,Comida,,
+48,Ocasion,Merienda,,
+49,Ocasion,Cena,,
+50,Region,Italiana,italian.png,italian_color.png
+51,Region,Mediterránea,mediterranea.png,mediterranea_color.png
+52,Region,Asiática,asian.png,asian_color.png
+53,Region,Mexicana,mexicana.png,mexicana_color.png
+54,Region,Americana,american.png,american_color.png
+55,Region,Hindú,hindu.png,hindu_color.png
+56,Region,Francesa,french.png,french_color.png
+57,Region,Tailandesa,thailand.png,thailand_color.png
+58,Region,Cantonesa,cantonesa.png,cantonesa_color.png
+59,Region,Japonesa,japanese.png,japanese_color.png
+60,Region,China,chinese.png,chinese_color.png
+61,Region,Medio oriente,medio_oriente.png,medio_oriente_color.png
+62,Region,Alemana,germany.png,germany_color.png
+63,Region,Argentina,argentina.png,argentina_color.png
+64,Region,Brasileña,brazil.png,brazil_color.png
+65,Region,Colombiana,colombia.png,colombia_color.png
+66,Region,Coreana,korea.png,korea_color.png
+67,Region,Cubana,cubana.png,cubana_color.png
+68,Region,Española,spain.png,spain_color.png
+69,Region,Finlandesa,finland.png,finland_color.png
+70,Region,Griega,greece.png,greece_color.png
+71,Region,Holandesa,holland.png,holland_color.png
+72,Region,Indonesa,indonesia.png,indonesia_color.png
+73,Region,Portuguesa,portugal.png,portugal_color.png
+74,Salud,Bajas en colesterol,,
+75,Salud,Diabeticos,,
+76,Salud,Sin lactosa,,
+77,Salud,Celiacos,,
+78,Salud,Alergicos a los frutos secos,,
+79,Salud,Colon irritable,,
+80,Salud,Bajar de peso,,
+81,Salud,Vegetarianos,,
+82,Temperatura,Frio,,
+83,Temperatura,Templado,,
+84,Temperatura,Caliente,,
+85,Gente,Bebes,,
+86,Gente,Niños,,
+87,Gente,Adultos,,
+88,Gente,Familiares,,
+89,Gente,Adultos mayores,,
+90,Textura,Liquidas,,
+91,Textura,Blandas,,
+92,Textura,Semi-blandas,,
+93,Textura,Crujientes,,
+94,Textura,Duras,,
