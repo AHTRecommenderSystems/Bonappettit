@@ -21,16 +21,13 @@
               input.separation.form-control(type="password" placeholder="Contraseña" ng-model="signup.password" required='')
             .col-xs-12
               .input-group.pull-left.col-xs-6
-                input.form-control(type='text', uib-datepicker-popup='{{signup.format}}', ng-model='signup.date', is-open='signup.popup.opened', datepicker-options='signup.dateOptions', ng-required='true', close-text='Cerrar', alt-input-formats='signup.altInputFormats' )
+                input.form-control(type='text', uib-datepicker-popup='{{signup.format}}', ng-model='signup.date', is-open='signup.popup.opened', datepicker-options='signup.dateOptions', ng-required='true', close-text='Cerrar', alt-input-formats='signup.altInputFormats' placeholder="Fecha de nacimiento")
                 span.input-group-btn
                   button.btn.btn-default(type='button', ng-click='signup.open()')
                     i.glyphicon.glyphicon-calendar
               .btn-group.pull-right.col-xs-6(uib-dropdown='', keyboard-nav='')
-                input#simple-btn-keyboard-nav.dropdown_menu_size.separation.text-left.btn.btn-default(type='button', uib-dropdown-toggle='' placeholder="País de origen" value="{{signup.user.country}}")
-                ul.dropdown-menu(uib-dropdown-menu='', role='menu', aria-labelledby='simple-btn-keyboard-nav')
-                  li.texto(role='menuitem' ng-repeat="country in signup.countries") 
-                    a(ng-click="signup.setCountry($index)") {{country}}
-            .col-xs-12.separation
+                input.form-control(type="text" ng-model="signup.user.country" uib-typeahead="country for country in signup.countries | filter:$viewValue" placeholder="País de origen")
+            .col-xs-12.separation(style="margin-top: 15px")
               | Género: &nbsp;
               label.radio-inline
                 input(type="radio" name="gender" ng-model="signup.user.gender" value="F") 

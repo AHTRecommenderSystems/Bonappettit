@@ -10,6 +10,7 @@
     var vm = this;
     vm.saveDish = saveDish;
     vm.selectCharacteristic = selectCharacteristic;
+    vm.deleteFile = deleteFile;
     vm.dishCharacteristics = [];
     vm.alerts = [];
     vm.dish = {};
@@ -25,6 +26,10 @@
         });
       });
     });
+
+    function deleteFile(){
+      vm.picture = null;
+    }
 
     function selectCharacteristic(characteristic){
       if(vm.dishCharacteristics[characteristic.id])

@@ -6,6 +6,7 @@
       .col-sm-6.col-md-4(ng-repeat="d in main.data.slice(0,6)")
         .thumbnail
           a(ui-sref="dishInfo({id: d.id})" ng-click="main.clickDish(d.id)"): img(data-holder-rendered="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUzOWM1NTdhYTEgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTM5YzU1N2FhMSI+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2OS4xNjY2NjYwMzA4ODM3OSIgeT0iMTA0LjU5OTk5OTkwNDYzMjU3Ij4xOTJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" style="display: block;" alt="")
+        uib-rating.rating(ng-model="d.averageRating" max="5" read-only="true" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating")
         .caption
           a.color_dish_name(ui-sref="dishInfo({id: d.id})"): h3 {{d.name}}
           a.color_dish_description(ui-sref="dishInfo({id: d.id})"): p {{d.description}}
@@ -15,6 +16,7 @@
       .col-sm-6.col-md-4(ng-repeat="d in main.data.slice(6,12)")
         .thumbnail
           a(ui-sref="dishInfo({id: d.id})" ng-click="main.clickDish(d.id)"): img(data-holder-rendered="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUzOWM1NTdhYTEgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTM5YzU1N2FhMSI+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2OS4xNjY2NjYwMzA4ODM3OSIgeT0iMTA0LjU5OTk5OTkwNDYzMjU3Ij4xOTJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" style="display: block;" alt="")
+        uib-rating.rating(ng-model="d.averageRating" max="5" read-only="true" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating")
         .caption
           a.color_dish_name(ui-sref="dishInfo({id: d.id})"): h3 {{d.name}}
           a.color_dish_description(ui-sref="dishInfo({id: d.id})"): p {{d.description}}

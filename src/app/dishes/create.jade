@@ -1,15 +1,18 @@
 .container#createDish
   .col-xs-8.col-xs-offset-2
     .row
-      p.text_discribe Describe las características del platillo
+      h4 Describe las características del platillo
       form.form
         .col-xs-12
           input.form-control(type="text" placeholder="Nombre del platillo" required="" ng-model="createDish.dish.name")
         .col-xs-12
           textarea.form-control.margin_form_input(rows="5" placeholder="Descripción" required="" ng-model="createDish.dish.description")
         .col-xs-12
-          input.form-control.margin_form_input_3(type="file")
+          .button.btn.btn-default.margin_form_input_3(ngf-select='', ng-model='createDish.picture', name='file', ngf-pattern="'image/*'", ngf-accept="'image/*'", ngf-max-size='20MB', ngf-min-height='100', ngf-resize='{width: 635, height: 400}') Una imagen dice más que mil palabras. Agrega una imagen del platillo.
+          button.btn.btn-default(ng-if="createDish.picture" ng-click="createDish.deleteFile()") Borrar selección
+          img(ngf-thumbnail="createDish.picture || ''")
         .col-xs-12
+          h4 Selecciona todas las categorías a las que pertenece el platillo
           uib-accordion(close-others='oneAtATime')
             uib-accordion-group(is-open='status.open' ng-repeat="category in createDish.characteristics")
               uib-accordion-heading

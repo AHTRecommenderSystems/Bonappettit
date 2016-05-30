@@ -39,12 +39,12 @@ id,type,name,picture,pictureColor
 38,Ocasion,Navidad ,xmas.png,xmas_color.png
 39,Ocasion,San Valentín ,valentines-day.png,valentines-day_color.png
 40,Ocasion,Ocasion especial,special.png,special_color.png
-41,Ocasion,Primavera ,spring.png,spring_color.png
-42,Ocasion,Verano ,summer.png,summer_color.png
-43,Ocasion,Otoño ,autumn.png,autumn_color.png
-44,Ocasion,Invierno ,winter.png,winter_color.png
-45,Ocasion,Desayunos ,breakfast.png,breakfast_color.png
-46,Ocasion,Almuerzos ,lunch.png,lunch_color.png
+41,Ocasion,Primavera ,,
+42,Ocasion,Verano ,,
+43,Ocasion,Otoño ,,
+44,Ocasion,Invierno ,,
+45,Ocasion,Desayunos ,,
+46,Ocasion,Almuerzos ,,
 47,Ocasion,Comida,,
 48,Ocasion,Merienda,,
 49,Ocasion,Cena,,
