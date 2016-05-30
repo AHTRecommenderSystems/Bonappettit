@@ -32,6 +32,12 @@
         controller: 'CreateDishController',
         controllerAs: 'createDish'
       })
+      .state('updateDish', {
+        url: '/dish/:id/update',
+        templateUrl: 'app/dishes/create.html',
+        controller: 'UpdateDishController',
+        controllerAs: 'updateDish'
+      })
       .state('dishInfo', {
         url: '/dish/:id',
         templateUrl: 'app/dishes/info.html',

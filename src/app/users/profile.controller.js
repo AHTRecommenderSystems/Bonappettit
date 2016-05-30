@@ -6,7 +6,7 @@
     .controller("ProfileController", ProfileController);
 
   /** @ngInject */
-  function ProfileController($log,$stateParams,UserService,AuthenticationService){
+  function ProfileController($log,$stateParams,UserService,AuthenticationService,$state){
     var vm = this;
     vm.editable = false;
     if($stateParams.id){
@@ -25,8 +25,15 @@
           vm.error = "Error. No se pudo obtener el usuario";
         }
       });
-
+ 
     }
-    
+  vm.deleteDish = function(dish){
+    var res = confirm("¿Está seguro que desea eliminar el platillo?");
+    $log.log(res);
+  };
+
+  vm.editDish = function(dish){
+    $state.go('updateDish',{id: dish.id});
+  }
   }
 })();
