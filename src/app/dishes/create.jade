@@ -13,6 +13,7 @@
           img(ngf-thumbnail="createDish.picture || ''")
         .col-xs-12
           h4 Selecciona todas las categorías a las que pertenece el platillo
+          img(ng-if="!createDish.characteristics" src="assets/images/loading.gif")
           uib-accordion(close-others='oneAtATime')
             uib-accordion-group(is-open='status.open' ng-repeat="category in createDish.characteristics")
               uib-accordion-heading

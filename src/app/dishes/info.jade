@@ -13,6 +13,7 @@
         ul
           li.category_color(ng-repeat="n in dishInfo.dish.characteristics") {{n.name}}
     h3.sepatarion_2 Platillos relacionados
+    img(ng-if="!dishInfo.recommendations" src="assets/images/loading.gif")
     .row.section.related_dishes
       .col-xs-6.col-md-3.related-item(ng-repeat="i in dishInfo.recommendations")
         a.thumbnail(ui-sref="dishInfo({id: i.id})")

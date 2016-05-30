@@ -1,7 +1,7 @@
 .container#main
   .section
     h1 Lo mejor de Bonappettit
-    p(ng-show="main.dishes.data.length > 0") {{main.dishes}}
+    img(ng-if="!main.data" src="assets/images/loading.gif")
     .row
       .col-sm-6.col-md-4(ng-repeat="d in main.data.slice(0,6)")
         .thumbnail
@@ -12,6 +12,7 @@
           a.color_dish_description(ui-sref="dishInfo({id: d.id})"): p {{d.description}}
   .section
     h1 Recomendado para ti
+    img(ng-if="!main.data" src="assets/images/loading.gif")
     .row
       .col-sm-6.col-md-4(ng-repeat="d in main.data.slice(6,12)")
         .thumbnail
