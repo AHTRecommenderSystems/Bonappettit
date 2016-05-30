@@ -27,7 +27,7 @@ nav.navbar.navbar-inverse
             span.glyphicon.glyphicon-log-in  
             |  Inicio de sesión
         li
-          a(ui-sref="profile" ng-if="vm.logged")
+          a(ui-sref="profile({id: vm.user.id})" ng-if="vm.logged")
             span.glyphicon.glyphicon-user 
             |  {{vm.user.name}}
         li

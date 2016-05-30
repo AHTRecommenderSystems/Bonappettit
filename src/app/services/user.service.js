@@ -73,7 +73,7 @@
           }).then(handleSuccess, handleError('Usuario o password incorrectos'));
         }
 
-        function GetDishes(user){
+        function GetDishes(id){
           return $http({
             method: 'GET',
             url: url + id + '/dishes/',
