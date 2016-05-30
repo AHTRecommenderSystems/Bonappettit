@@ -12,25 +12,25 @@
     vm.authenticate = authenticate;
     vm.user = {};
  
-    function initController() {
-        // reset login status
-        AuthenticationService.ClearCredentials();
-    }
+    (function initController() {
+      // reset login status
+      AuthenticationService.ClearCredentials();
+    })();
 
     function authenticate() {
-        vm.dataLoading = true;
-        if(vm.password)
-        vm.user.password = new Hashes.MD5().hex(vm.password);
-        AuthenticationService.Login(vm.user.email, vm.user.password, function (response) {
-            $log.log(response);
-            if (response.success) {
-                AuthenticationService.SetCredentials(vm.email, vm.password);
-                $state.go('home');
-            } else {
-                FlashService.Error(response.message);
-                vm.dataLoading = false;
-            }
-        });
+      vm.dataLoading = true;
+      if(vm.password)
+      vm.user.password = new Hashes.MD5().hex(vm.password);
+      AuthenticationService.Login(vm.user.email, vm.user.password, function (response) {
+        $log.log(response);
+        if (response.success) {
+          AuthenticationService.SetCredentials(response);
+          $state.go('home');
+        } else {
+          FlashService.Error(response.message);
+          vm.dataLoading = false;
+        }
+      });
     }
   }
 })();

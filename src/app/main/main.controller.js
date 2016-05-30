@@ -6,14 +6,14 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, DishService, $log, $cookies, $timeout, FlashService, $sessionStorage) {
+  function MainController($scope, $rootScope, DishService, $log, $cookies, $timeout, FlashService,AuthenticationService) {
     var vm = this;
 
     vm.clickDish = function(item){
       $cookies.put(item,1);
     }
     
-    $log.log($sessionStorage.getItem("session"));
+    $log.log(AuthenticationService.IsSet(), AuthenticationService.GetCredentials());
 
     DishService.GetAll().then(function (response) {
       $log.log(response);

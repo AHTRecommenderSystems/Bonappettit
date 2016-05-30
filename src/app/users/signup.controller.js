@@ -86,7 +86,7 @@
       vm.user.birthdate = vm.date.getDate() + '/' + Number(vm.date.getMonth() + 1)+ '/' + vm.date.getFullYear();
     if(vm.password)
       vm.user.password = new Hashes.MD5().hex(vm.password);
-    if(vm.user.name && vm.user.lastname && vm.user.email && vm.user.birthdate && vm.user.password && vm.user.country){
+    if(vm.user.name && vm.user.lastname && vm.user.email && vm.user.birthdate && vm.user.password && vm.user.country && vm.user.gender){
       UserService.Create(vm.user).then(function(response){
         $log.log(response);
         if(response.success){

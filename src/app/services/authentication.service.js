@@ -7,48 +7,52 @@
  
     /** @ngInject */
     function AuthenticationService($http, $cookies, $rootScope, $log, $sessionStorage) {
+        $rootScope.$watch('currentUser', function(newValue, oldValue){
+          $log.log('changed', newValue, oldValue);
+          $log.log($sessionStorage);
+        });
         var url = "http://localhost:8080/bonappettit-neo4j/rest/users/";
         var service = {};
  
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
+        service.GetCredentials = GetCredentials;
+        service.IsSet = IsSet;
  
         return service;
  
         function Login(email, password, callback) {
-            return $http({
-                method: 'POST',
-                url: url + 'login/',
-                data: $.param({email: email, password: password}),
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-              }).success(function (response) {
-                    $log.log(response);
-                    if(response.success){
-                       callback(response);
-                    }
-                   });
- 
+          return $http({
+            method: 'POST',
+            url: url + 'login/',
+            data: $.param({email: email, password: password}),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function (response) {
+            $log.log(response);
+            if(response.success){
+               callback(response);
+            }
+          });
         }
  
-        function SetCredentials(username, password) {
-            var authdata = Base64.encode(username + ':' + password);
- 
-            $rootScope.session = {
-                currentUser: {
-                    username: username,
-                    authdata: authdata
-                }
-            };
- 
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-            $sessionStorage.put('session', $rootScope.session);
+        function SetCredentials(user){
+          $log.log(user);
+          $rootScope.currentUser = user;
+          $sessionStorage.currentUser = user;
         }
  
         function ClearCredentials() {
-            $rootScope.session = {};
-            $sessionStorage.remove('session');
-            $http.defaults.headers.common.Authorization = 'Basic';
+          $rootScope.currentUser = null;
+          $sessionStorage.currentUser = null;
+        }
+
+        function GetCredentials(){
+          return $sessionStorage.currentUser;
+        }
+
+        function IsSet(){
+          return $sessionStorage.currentUser !== null && $sessionStorage.currentUser !== undefined ? true : false;
         }
     }
  

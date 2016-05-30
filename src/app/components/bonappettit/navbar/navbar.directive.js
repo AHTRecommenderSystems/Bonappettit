@@ -15,5 +15,13 @@ angular
   }
 
   /** @ngInject */
-  function navbarController(){
+  function navbarController($rootScope,AuthenticationService){
+    var vm = this;
+    $rootScope.$watch('currentUser', function(){
+      vm.logged = AuthenticationService.IsSet();
+      vm.user = AuthenticationService.GetCredentials();
+    });
+   
+    vm.clearCredentials = AuthenticationService.ClearCredentials;
+
   }
