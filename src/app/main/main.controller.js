@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $rootScope, DishService, $log, $cookies, $timeout, FlashService,AuthenticationService) {
+  function MainController($scope, $rootScope, DishService, $log, $cookies, $timeout, FlashService,AuthenticationService, RecommendationService) {
     var vm = this;
 
     vm.clickDish = function(item){
@@ -23,6 +23,13 @@
             FlashService.Error(response.message);
             vm.dataLoading = false;
         }
+    });
+
+    RecommendationService.ByUser(AuthenticationService.GetCredentials().id, 9).then(function(response){
+      $log.log("reco", response);
+      if(response.success){
+        vm.recommendations = _.uniqBy(response.data, 'name').slice(0,20);
+      }
     });
 
   }

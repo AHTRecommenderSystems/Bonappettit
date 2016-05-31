@@ -15,7 +15,7 @@ angular
   }
 
   /** @ngInject */
-  function navbarController($rootScope,AuthenticationService){
+  function navbarController($rootScope,AuthenticationService, DishService, $log, $state){
     var vm = this;
     $rootScope.$watch('currentUser', function(){
       vm.logged = AuthenticationService.IsSet();
@@ -24,4 +24,12 @@ angular
    
     vm.clearCredentials = AuthenticationService.ClearCredentials;
 
+    DishService.GetAll().then(function(response){
+      if(response.success)
+        vm.dishes = response.data
+    });
+
+    vm.selectDish = function($item){
+      $state.go('dishInfo',{id: $item.id});
+    }
   }

@@ -6,7 +6,7 @@
     .controller("CreateDishController", CreateDishController);
 
   /** @ngInject */
-  function CreateDishController($scope, $timeout, $log, DishService, $location){
+  function CreateDishController($scope, $timeout, $log, DishService, $location, AuthenticationService){
     var vm = this;
     vm.saveDish = saveDish;
     vm.selectCharacteristic = selectCharacteristic;
@@ -37,7 +37,6 @@
       else
         var picture = "url(assets/images/characteristics/"+characteristic.pictureColor +")";
       d3.select("#label"+characteristic.id).style("background", picture).style("background-size","42px");
-      $log.log(characteristic);
     }
 
     function saveDish(){
@@ -45,7 +44,26 @@
       $log.log(vm.dish);
       DishService.Create(vm.dish).then(function(response){
       if(response.success === true){
-        addAlert({ type: 'success', msg: 'El platillo se creó correctamente' });
+        vm.dish.id = response.id;
+        DishService.UploadedBy(vm.dish.id, AuthenticationService.GetCredendials().id).then(function(response3){
+          if(response3.success === true){
+            for(var index = 0; index <= vm.dishCharacteristics.length; index++){
+              if(vm.dishCharacteristics[index]){
+                DishService.AddCharacteristic(vm.dish.id,index).then(function(response2){
+                  if(response2.success === true){
+                    addAlert({ type: 'success', msg: 'El platillo se creó correctamente' });
+                  }
+                });
+              } else {
+                DishService.RemoveCharacteristic(vm.dish.id,index).then(function(response2){
+                  if(response2.success === true){
+                    addAlert({ type: 'success', msg: 'El platillo se creó correctamente' });
+                  }
+                });
+              }
+            }
+          }
+        });
         //$location.path('/dish/'+response.id);
       } else {
         addAlert({ type: 'danger', msg: '¡Oh, no! Ocurrió un error al crear el platillo' });

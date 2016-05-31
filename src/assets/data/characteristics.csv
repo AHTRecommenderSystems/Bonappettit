@@ -39,15 +39,15 @@ id,type,name,picture,pictureColor
 38,Ocasion,Navidad ,xmas.png,xmas_color.png
 39,Ocasion,San Valentín ,valentines-day.png,valentines-day_color.png
 40,Ocasion,Ocasion especial,special.png,special_color.png
-41,Ocasion,Primavera ,,
-42,Ocasion,Verano ,,
-43,Ocasion,Otoño ,,
-44,Ocasion,Invierno ,,
-45,Ocasion,Desayunos ,,
-46,Ocasion,Almuerzos ,,
-47,Ocasion,Comida,,
-48,Ocasion,Merienda,,
-49,Ocasion,Cena,,
+41,Ocasion,Primavera ,sunflower.png,sunflower_color.png
+42,Ocasion,Verano ,cloud-and-sun-hand-drawn-outlines.png,cloud-and-sun-hand-drawn-outlines_color.png
+43,Ocasion,Otoño ,maple-leaf.png,maple-leaf_color.png
+44,Ocasion,Invierno ,snow-globe.png,snow-globe_color.png
+45,Ocasion,Desayunos ,cereals-1.png,cereals.png
+46,Ocasion,Almuerzos ,breakfast.png,breakfast_color.png
+47,Ocasion,Comida,dinner-2.png,dinner-2_color.png
+48,Ocasion,Merienda,clock.png,clock_color.png
+49,Ocasion,Cena,night.png,night_color.png
 50,Region,Italiana,italian.png,italian_color.png
 51,Region,Mediterránea,mediterranea.png,mediterranea_color.png
 52,Region,Asiática,asian.png,asian_color.png
@@ -72,24 +72,24 @@ id,type,name,picture,pictureColor
 71,Region,Holandesa,holland.png,holland_color.png
 72,Region,Indonesa,indonesia.png,indonesia_color.png
 73,Region,Portuguesa,portugal.png,portugal_color.png
-74,Salud,Bajas en colesterol,,
-75,Salud,Diabeticos,,
-76,Salud,Sin lactosa,,
-77,Salud,Celiacos,,
-78,Salud,Alergicos a los frutos secos,,
-79,Salud,Colon irritable,,
-80,Salud,Bajar de peso,,
-81,Salud,Vegetarianos,,
-82,Temperatura,Frio,,
-83,Temperatura,Templado,,
-84,Temperatura,Caliente,,
-85,Gente,Bebes,,
-86,Gente,Niños,,
-87,Gente,Adultos,,
-88,Gente,Familiares,,
-89,Gente,Adultos mayores,,
-90,Textura,Liquidas,,
-91,Textura,Blandas,,
-92,Textura,Semi-blandas,,
-93,Textura,Crujientes,,
-94,Textura,Duras,,
+74,Salud,Bajas en colesterol,fruits.png,fruits_color.png
+75,Salud,Diabeticos,medical.png,medical_color.png
+76,Salud,Sin lactosa,ufo-and-cow.png,ufo-and-cow_color.png
+77,Salud,Celiacos,item-free-of-gluten.png,item-free-of-gluten_color.png
+78,Salud,Alergicos a los frutos secos,pistachio.png,pistachio_color.png
+79,Salud,Colon irritable,large-intestine-outline.png,large-intestine-outline_color.png
+80,Salud,Bajar de peso,medication-to-reduce-waist.png,medication-to-reduce-waist_color.png
+81,Salud,Vegetarianos,bamboo.png,bamboo_color.png
+82,Temperatura,Frio,weather.png,weather_color.png
+83,Temperatura,Templado,fresh.png,fresh_color.png
+84,Temperatura,Caliente,weather-1.png,weather-1_color.png
+85,Gente,Bebes,baby-food.png,baby-food_color.png
+86,Gente,Niños,gingerbread.png,gingerbread_color.png
+87,Gente,Adultos,plus-18-movie.png,plus-18-movie_color.png
+88,Gente,Familiares,people-2.png,people-2_color.png
+89,Gente,Adultos mayores,people.png,people_color.png
+90,Textura,Liquidas,drop.png,drop_color.png
+91,Textura,Blandas,marshmallow.png,marshmallow_color.png
+92,Textura,Semi-blandas,big-cheese.png,big-cheese_color.png
+93,Textura,Crujientes,marie-biscuit-with-bite.png,marie-biscuit-with-bite_color.png
+94,Textura,Duras,diamond.png,diamond_color.png

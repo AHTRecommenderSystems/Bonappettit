@@ -10,7 +10,7 @@ nav.navbar.navbar-inverse
       ul.nav.navbar-nav
       form.navbar-form.navbar-left(role='search')
         .input-group
-          input.form-control(type='text', placeholder='Busca un platillo')
+          input.form-control(type="search" ng-model="vm.search" uib-typeahead="dish.name for dish in vm.dishes | filter:$viewValue | limitTo:10" typeahead-on-select="vm.selectDish($item)")
           span.input-group-btn
             button.btn.btn-default(type='button') 
               span.glyphicon.glyphicon-search

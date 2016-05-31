@@ -41,7 +41,7 @@
       return $http({
         method: 'POST',
         url: url,
-        data: $.param({name: dish.name, description: dish.description, picture: dish.picture, userId: dish.user}),
+        data: $.param({name: dish.name, description: dish.description, picture: dish.picture}),
         dataType: "json",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       }).then(handleSuccess, handleError('Error creating dish'));
@@ -62,13 +62,13 @@
         url: url + id,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).then(handleSuccess, handleError('Error deleting dish'));
-    }
+    }c
 
-    function AddCharacteristic(idDish,characteristic){
+    function AddCharacteristic(idDish,idCharacteristic){
       return $http({
         method: 'POST',
         url: url + 'characteristics/',
-        data: $.param({idDish: idDish, idCategory: characteristic}),
+        data: $.param({idDish: idDish, idCategory: idCharacteristic}),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).then(handleSuccess, handleError('Error updating characteristics'));
     }
@@ -82,13 +82,22 @@
       }).then(handleSuccess, handleError('Error updating characteristics'));
     }
 
-    function Rate(idDish, value){
+    function Rate(idDish, idUser, value){
       return $http({
         method: 'POST',
-        url: url + 'rate/',
-        data: $.param({idDish: idDish, rating: value}),
+        url: 'http://localhost:8080/bonappettit-neo4j/rest/ratews/create',
+        data: $.param({on: new Date(), idUser: idUser, idDish: idDish, value: value}),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).then(handleSuccess, handleError("Error al evaluar el platillo"));
+    }
+
+    function UploadedBy(idDish, idUser){
+      return $http({
+        method: 'POST',
+        url: 'http://localhost:8080/bonappettit-neo4j/rest/uploadws/create',
+        data: $.param({on: new Date(), userId: idUser, dishId: idDish}),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(handleSuccess, handleError("Error al crear el platillo"));
     }
 
     // private functions

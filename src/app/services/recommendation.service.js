@@ -15,20 +15,20 @@
  
     return service;
 
-    function ByItem(id) {
+    function ByItem(id,topN) {
       return $http({
         method: 'GET',
-        url: url + 'byItem/' + id,
+        url: url + 'byItem/' + id + '/' + topN,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).then(handleSuccess, handleError('Error al obtener los platillos'));
     }
 
-    function ByUser(id) {
+    function ByUser(id,topN) {
       return $http({
         method: 'GET',
-        url: url + 'byUser/' + id,
+        url: url + 'byUser/' + id + '/' + topN,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-      }).then(handleSuccess, handleError('Error al obtener el platillo '+id));
+      }).then(handleSuccess, handleError('Error al obtener los platillos'));
     }
 
     function ByItemList(dishes) {
